@@ -1,6 +1,6 @@
 from zhipuai import ZhipuAI
 
-llm = ZhipuAI(api_key="e1d2c3bed7ff428a90832d0eab70dd0f.chN0eNQB8jWJl0ZS")
+llm = ZhipuAI(api_key="")
 
 prompt = "写一遍关于爱的文章"
 
