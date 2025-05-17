@@ -63,10 +63,21 @@ class ChatGPT5(LLM):
 
 
 llm = ChatGPT5()
-model_path = "/mnt/workspace/chatglm3-6b"
-llm.load_model(model_path)
+# model_path = "/mnt/workspace/chatglm3-6b"
+# llm.load_model(model_path)
 # llkm = llm.invoke("你好，我来自中国。")
 # print(llkm)
 
-for response in llm.stream("写一首情诗"):
-    print(response, end = "")
+# for response in llm.stream("写一首情诗"):
+#     print(response, end = "")
+
+from langchain_core.prompts import ChatPromptTemplate
+from langchain_core.output_parsers import StrOutputParser
+
+prompt = ChatPromptTemplate.from_template("请根据下面的主题写一篇小红书营销的短文: {topic}")
+out_parser = StrOutputParser()
+
+
+chain = prompt | llm | out_parser
+for chunk in chain.stream({"topic":"绿茶"}):
+    print(chunk, end = "")
