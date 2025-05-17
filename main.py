@@ -3,8 +3,8 @@ from langchain.prompts import ChatPromptTemplate
 import os
  
  
-API_SECRET_KEY = ""
-BASE_URL = "your api base"
+API_SECRET_KEY = "EMPTY"
+BASE_URL = "http://192.168.56.1:1234/v1"
 os.environ["OPENAI_API_KEY"] = API_SECRET_KEY
 os.environ["OPENAI_API_BASE"] = BASE_URL
  
